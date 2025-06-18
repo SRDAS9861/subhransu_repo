@@ -1,0 +1,106 @@
+<h2>Customer Management</h2>
+
+<!-- Add Customer Form -->
+<form (ngSubmit)="addCustomer()" class="add-form" #form="ngForm">
+  <!-- Name -->
+  <input
+    type="text"
+    [(ngModel)]="newCustomer.name"
+    name="name"
+    placeholder="Name"
+    pattern="^[A-Za-z ]+$"
+    required
+    #nameRef="ngModel"
+  />
+  <div *ngIf="nameRef.invalid && nameRef.touched" class="error">
+    Name must contain only letters and spaces.
+  </div>
+
+  <!-- Mobile -->
+  <input
+    type="text"
+    [(ngModel)]="newCustomer.mobile"
+    name="mobile"
+    placeholder="Mobile"
+    pattern="^[0-9]{10}$"
+    required
+    #mobileRef="ngModel"
+  />
+  <div *ngIf="mobileRef.invalid && mobileRef.touched" class="error">
+    Mobile must be exactly 10 digits.
+  </div>
+
+  <!-- Address -->
+  <input
+    type="text"
+    [(ngModel)]="newCustomer.address"
+    name="address"
+    placeholder="Address"
+    minlength="5"
+    required
+    #addressRef="ngModel"
+  />
+  <div *ngIf="addressRef.invalid && addressRef.touched" class="error">
+    Address must be at least 5 characters long.
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Add Customer</button>
+</form>
+
+<!-- Customers Table -->
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Mobile</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.name }}</td>
+      <td>{{ customer.mobile }}</td>
+      <td>{{ customer.address }}</td>
+      <td>
+        <button (click)="startEdit(customer)">Edit</button>
+        <button (click)="deleteCustomer(customer.id)">Delete</button>
+      </td>
+    </tr>
+
+    <!-- Edit Row -->
+    <tr *ngIf="editingCustomer">
+      <td>{{ editingCustomer.id }}</td>
+      <td>
+        <input
+          [(ngModel)]="editingCustomer.name"
+          name="editName"
+          pattern="^[A-Za-z ]+$"
+          required
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="editingCustomer.mobile"
+          name="editMobile"
+          pattern="^[0-9]{10}$"
+          required
+        />
+      </td>
+      <td>
+        <input
+          [(ngModel)]="editingCustomer.address"
+          name="editAddress"
+          minlength="5"
+          required
+        />
+      </td>
+      <td>
+        <button (click)="saveChanges()">Save</button>
+        <button (click)="cancelEdit()">Cancel</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

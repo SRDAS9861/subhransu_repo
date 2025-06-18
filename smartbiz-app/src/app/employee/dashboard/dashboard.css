@@ -1,0 +1,82 @@
+/* Background */
+.employee-container {
+  background-image: url('/assets/employeeDashboard.jpg'); /* Put image in public/assets */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: white;
+  padding-top: 80px;
+}
+
+/* Fixed navbar */
+.employee-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 999;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.dashboard-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00e1ff;
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00e1ff;
+}
+
+/* Logout button */
+.logout-button button {
+  color: white;
+  background-color: transparent;
+  border: 2px solid #00e1ff;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-button button:hover {
+  background-color: #00e1ff;
+  color: black;
+}
+
+/* Main content */
+.employee-content {
+  padding: 30px;
+  margin-top: 20px;
+}
+
+h2{
+  color: black;
+}

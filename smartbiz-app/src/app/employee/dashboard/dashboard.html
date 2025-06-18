@@ -1,0 +1,20 @@
+<div class="employee-container">
+  <nav class="employee-navbar">
+    <div class="nav-left">
+      <h2 class="dashboard-title">Employee Dashboard</h2>
+      <div class="nav-links">
+        <a routerLink="/employee/add-customer">Add Customer</a>
+        <a routerLink="/employee/make-sale">Make Sale</a>
+        <a routerLink="/employee/view-products">View Products</a>
+      </div>
+    </div>
+    <div class="logout-button">
+      <button (click)="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="employee-content">
+    <h2>Welcome, {{ employeeName }} 👋</h2>
+    <router-outlet></router-outlet>
+  </div>
+</div>

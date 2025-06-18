@@ -1,0 +1,21 @@
+<div class="dashboard-container">
+  <nav class="dashboard-navbar">
+    <div class="nav-left">
+      <h2 class="dashboard-title">Admin Dashboard</h2>
+      <div class="nav-links">
+        <a routerLink="/admin/customers">Customers</a>
+        <a routerLink="/admin/products">Products</a>
+        <a routerLink="/admin/transactions">Transactions</a>
+        <a routerLink="/admin/reports">Reports</a>
+      </div>
+    </div>
+    <div class="logout-button">
+      <button (click)="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="dashboard-content">
+    <h2>Welcome, {{ adimnName }} 👋</h2>
+    <router-outlet></router-outlet>
+  </div>
+</div>

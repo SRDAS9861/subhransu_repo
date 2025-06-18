@@ -1,0 +1,79 @@
+/* Full page background */
+.dashboard-container {
+  background-image: url('/assets/adminDashBoard1.jpg'); /* ✅ Use relative path from index.html */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: white;
+  padding-top: 80px;
+}
+
+/* Fixed top navbar */
+.dashboard-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: rgba(0, 0, 0, 0.6); /* Transparent navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 999;
+}
+
+/* Title and nav links group */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.dashboard-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffc107;
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffc107;
+}
+
+/* Logout button */
+.logout-button button {
+  color: white;
+  background-color: transparent;
+  border: 2px solid #ffc107;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-button button:hover {
+  background-color: #ffc107;
+  color: black;
+}
+
+/* Main content */
+.dashboard-content {
+  padding: 30px;
+  margin-top: 20px;
+}

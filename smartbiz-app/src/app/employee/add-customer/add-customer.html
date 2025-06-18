@@ -1,0 +1,47 @@
+<h2>Add New Customer</h2>
+
+<form (ngSubmit)="addCustomer()" #form="ngForm" class="customer-form">
+  <!-- Name -->
+  <input
+    type="text"
+    [(ngModel)]="newCustomer.name"
+    name="name"
+    placeholder="Customer Name"
+    required
+    pattern="^[A-Za-z ]+$"
+    #nameRef="ngModel"
+  />
+  <div *ngIf="nameRef.invalid && nameRef.touched" class="error">
+    Name must contain only letters and spaces.
+  </div>
+
+  <!-- Mobile -->
+  <input
+    type="text"
+    [(ngModel)]="newCustomer.mobile"
+    name="mobile"
+    placeholder="Mobile Number"
+    required
+    pattern="^[0-9]{10}$"
+    #mobileRef="ngModel"
+  />
+  <div *ngIf="mobileRef.invalid && mobileRef.touched" class="error">
+    Mobile must be a 10-digit number.
+  </div>
+
+  <!-- Address -->
+  <input
+    type="text"
+    [(ngModel)]="newCustomer.address"
+    name="address"
+    placeholder="Address"
+    required
+    minlength="5"
+    #addressRef="ngModel"
+  />
+  <div *ngIf="addressRef.invalid && addressRef.touched" class="error">
+    Address must be at least 5 characters long.
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Add Customer</button>
+</form>

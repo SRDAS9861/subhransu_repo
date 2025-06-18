@@ -1,0 +1,30 @@
+<h2>🧾 Record a Sale</h2>
+
+<form (ngSubmit)="recordSale()" #saleForm="ngForm" class="sale-form">
+  <label>
+    Customer:
+    <select [(ngModel)]="selectedCustomerId" name="customerId" required>
+      <option value="" disabled selected>Select Customer</option>
+      <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.name }}</option>
+    </select>
+  </label>
+
+  <label>
+    Product:
+    <select [(ngModel)]="selectedProductId" name="productId" (change)="updateTotal()" required>
+      <option value="" disabled selected>Select Product</option>
+      <option *ngFor="let product of products" [value]="product.id">
+        {{ product.itemName }} - ₹{{ product.price }}
+      </option>
+    </select>
+  </label>
+
+  <label>
+    Quantity:
+    <input type="number" [(ngModel)]="quantity" name="quantity" min="1" (input)="updateTotal()" required />
+  </label>
+
+  <p><strong>Total:</strong> ₹{{ totalPrice }}</p>
+
+  <button type="submit">💾 Save Sale</button>
+</form>

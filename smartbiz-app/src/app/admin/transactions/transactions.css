@@ -1,0 +1,43 @@
+h2{
+  color: black;
+}
+
+.transaction-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.transaction-form select,
+.transaction-form input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  flex: 1 1 200px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #1b5e20;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.75rem;
+  border: 1px solid black;
+  text-align: center;
+}
+
+

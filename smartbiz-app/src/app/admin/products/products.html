@@ -1,0 +1,48 @@
+<h2>Product Management</h2>
+
+<!-- Add Product Form -->
+<form (ngSubmit)="addProduct()" class="add-form">
+  <input type="text" [(ngModel)]="newProduct.itemName" name="itemName" placeholder="Product Name" required />
+  <input type="number" [(ngModel)]="newProduct.price" name="price" placeholder="Price" required />
+  <input type="number" [(ngModel)]="newProduct.stock" name="stock" placeholder="Stock" required />
+  <button type="submit">Add</button>
+</form>
+
+
+
+<!-- Product Table -->
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Item Name</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.id }}</td>
+      <td>{{ product.itemName }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.stock }}</td>
+      <td>
+        <button (click)="startEdit(product)">Edit</button>
+        <button (click)="deleteProduct(product.id)">Delete</button>
+      </td>
+    </tr>
+
+    <!-- Edit Row -->
+    <tr *ngIf="editingProduct">
+      <td>{{ editingProduct.id }}</td>
+      <td><input [(ngModel)]="editingProduct.itemName" name="editItemName" /></td>
+      <td><input [(ngModel)]="editingProduct.price" name="editPrice" type="number" /></td>
+      <td><input [(ngModel)]="editingProduct.stock" name="editStock" type="number" /></td>
+      <td>
+        <button (click)="saveChanges()">Save</button>
+        <button (click)="cancelEdit()">Cancel</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

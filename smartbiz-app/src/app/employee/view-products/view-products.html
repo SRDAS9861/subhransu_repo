@@ -1,0 +1,20 @@
+<h2>📦 Available Products</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Item Name</th>
+      <th>Price (₹)</th>
+      <th>Stock</th>
+    </tr>
+  </thead>
+  <tbody id="id1">
+    <tr *ngFor="let product of products">
+      <td>{{ product.id }}</td>
+      <td>{{ product.itemName }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.stock }}</td>
+    </tr>
+  </tbody>
+</table>
